@@ -21,9 +21,9 @@ else:
 # - **ან** იყოფა 400-ზე
 year = int(input("Sheiyvanet weli: "))
 if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
-    print("Nakiani weliwadia (Not a leap year)")
+    print("Nakiani weliwadia (Leap year)")
 else:
-    print("Ar aris nakiani weli (Leap year)")
+    print("Ar aris nakiani weli (Not a leap year)")
 
 # შეამოწმეთ პროგრამა ამ წლებით: `2024` (ნახტომი), `2023` (არა), `1900` (არა), `2000` (ნახტომი).
 
@@ -62,26 +62,34 @@ else:
 # ### 4. შეცდომების დამუშავება (`ValueError`, `ZeroDivisionError`, `TypeError`)
 # მოცემულია პროგრამა, რომელიც მომხმარებლისგან იღებს სახელს, ასაკს და რიცხვს:
 
-# ```python
-# name = input('Enter name: ')
-# age = int(input('Enter age: '))
-# number = int(input('Enter a number to divide 100 by: '))
-
-# print('100 /', number, '=', 100 / number)
-# print('Hello, ' + name + '! Next year you will be ' + (age + 1) + ' years old.')
-# ```
 
 # **ნაწილი 1.** გაუშვით პროგრამა და ნახეთ, რა შეცდომები ჩნდება შემდეგი შეყვანებისას:
 # - `John`, `20`, `5`
 # - `John`, `abc`, `5`
 # - `John`, `20`, `0`
+try:
+    name = input('Enter name: ')
+    age = int(input('Enter age: '))
+    number = int(input('Enter a number to divide 100 by: '))
 
+    print('100 /', number, '=', 100 / number)
+    print(f"Hello, {name}! Next year you will be {age + 1} years old.")
 # **ნაწილი 2.** მთელი კოდი მოაქციეთ `try`-ში და დაამუშავეთ შეცდომები:
 # - `ValueError` — დაბეჭდეთ `Invalid input`
 # - `ZeroDivisionError` — დაბეჭდეთ `Cannot divide by zero`
 # - `TypeError` — დაბეჭდეთ `Cannot join text and number`
 # - ნებისმიერი სხვა შეცდომისთვის (`Exception`) — დაბეჭდეთ თვითონ შეცდომა
+except ValueError:
+    print('Invalid input')
 
+except ZeroDivisionError:
+    print('Cannot divide by zero')
+
+except TypeError:
+    print('Cannot join text and number')
+
+except Exception as e:
+    print(e)
 # **ნაწილი 3.** გაასწორეთ ბოლო `print()` ისე, რომ `TypeError` აღარ გამოვიდეს და პროგრამამ სწორად იმუშაოს (მაგ. `John`, `20`, `5` → `Hello, John! Next year you will be 21 years old.`).
 
 # >მინიშნება: `TypeError` ჩნდება მაშინ, როცა ტექსტს (`str`) რიცხვთან (`int`) აერთებთ `+`-ით. გამოსწორება შეგიძლიათ `str()`-ით ან f-string-ით
