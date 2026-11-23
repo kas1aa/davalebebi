@@ -26,8 +26,8 @@ print('Aris tu ara 23 mocemul siashi: ' , 23 in unique_numbers)
 # ana = 'python', 'java', 'c', 'sql'
 # nika = 'python', 'javascript', 'sql', 'go'
 # ```
-ana = 'python', 'java', 'c', 'sql'
-nika = 'python', 'javascript', 'sql', 'go'
+ana = {'python', 'java', 'c', 'sql'}
+nika = {'python', 'javascript', 'sql', 'go'}
 # ოპერატორებითაც და მეთოდებითაც (`union`, `intersection`, `dierence`, `symmetric_dierence`) იპოვეთ და დაბეჭდეთ:
 
 # 1. ყველა ენა, რომელიც იცის ერთმა მაინც მათგანმა.
@@ -40,10 +40,10 @@ print('Enebi romebic orivem icis: ', ana.intersection(nika))
 
 # 3. ენები, რომლებიც იცის მხოლოდ ანამ.
 print(ana - nika)
-print('Enebi romlebic icis mxolod anam: ' , ana.dierence(nika))
+print('Enebi romlebic icis mxolod anam: ' , ana.difference(nika))
 
 print(ana ^ nika)
-print('Enebi romlebic mxolod ertma icis: ' , ana.symmetric_dierence(nika))
+print('Enebi romlebic mxolod ertma icis: ' , ana.symmetric_difference(nika))
 
 # ---
 
@@ -133,10 +133,11 @@ words = ['python', 'java', 'ai', 'sql', 'go', 'python']
 
 # 1. სია, რომელშიც იქნება 1-დან 10-მდე რიცხვების კვადრატები.
 squares = [x**2 for x in range(1, 11)]
-print('1-dan 10-mde ricxvebis kvadratebi: squares')
+print('1-dan 10-mde ricxvebis kvadratebi: ' , squares)
 # 2. ლექსიკონი `words` სიიდან: გასაღები არის სიტყვა, მნიშვნელობა კი მისი სიგრძე.
 word_lengths = {word: len(word) for word in words}
 print('Sityvis sigrdze', word_lengths)
 # 3. სეტი, რომელშიც იქნება `words` სიის სიტყვების პირველი ასოები.
 first_letters = {word[0] for word in words}
-print('Siis sityvebis pirveli asoebi irst_letters')
+
+print('Siis sityvebis pirveli asoebi: ' , first_letters)
